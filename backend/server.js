@@ -15,7 +15,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(cors());
 
 // 🔹 MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/faceAuthDB';
+const MONGO_URI = "mongodb+srv://preethi:Preethi123@cluster0.mongodb.net/seniorEaseBookings?retryWrites=true&w=majority";
 
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
