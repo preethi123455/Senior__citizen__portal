@@ -1,3 +1,5 @@
+// mergedServer.js
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -8,7 +10,10 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: "*" }));
 
-const MONGO_URI = "mongodb://localhost:27017/yourDatabaseName";
+// =======================
+// MongoDB Atlas Connection
+// =======================
+const MONGO_URI = "mongodb+srv://preethi:Preethi123@cluster0.mongodb.net/seniorEaseBookings?retryWrites=true&w=majority";
 
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
@@ -20,7 +25,11 @@ mongoose.connect(MONGO_URI, {
     process.exit(1);
   });
 
-// Define Doctor Schema
+// =======================
+// Doctor and Appointment Schemas
+// =======================
+
+// Doctor Schema
 const doctorSchema = new mongoose.Schema({
   fullName: { type: String, required: true },
   licenseNumber: { type: String, required: true },
@@ -29,7 +38,7 @@ const doctorSchema = new mongoose.Schema({
   document: { type: String, required: true },
 });
 
-// Define Appointment Schema (Now Includes userEmail)
+// Appointment Schema
 const appointmentSchema = new mongoose.Schema({
   userEmail: { type: String, required: true },
   selectedDoctor: { type: String, required: true },
@@ -38,7 +47,7 @@ const appointmentSchema = new mongoose.Schema({
   meetLink: { type: String, required: true },
 });
 
-// Define Schema for Removed Appointments
+// Removed Appointments Schema
 const removedAppointmentSchema = new mongoose.Schema({
   userEmail: String,
   selectedDoctor: String,
@@ -47,12 +56,14 @@ const removedAppointmentSchema = new mongoose.Schema({
   deletedAt: { type: Date, default: Date.now }
 });
 
-// Create Models
+// Models
 const Doctor = mongoose.model("Doctor", doctorSchema);
 const Appointment = mongoose.model("Appointment", appointmentSchema);
 const RemovedAppointment = mongoose.model("RemovedAppointment", removedAppointmentSchema);
 
-// Storage Configuration for Multer (For Document Uploads)
+// =======================
+// Multer Configuration (For Doctor Document Upload)
+// =======================
 const storage = multer.diskStorage({
   destination: "./uploads/",
   filename: (req, file, cb) => {
@@ -61,7 +72,11 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// API: Get List of Doctors
+// =======================
+// Doctor Routes
+// =======================
+
+// Get all doctors
 app.get("/doctors", async (req, res) => {
   try {
     const doctors = await Doctor.find();
@@ -71,7 +86,7 @@ app.get("/doctors", async (req, res) => {
   }
 });
 
-// API: Add a Doctor (With Document Upload)
+// Add a doctor with document upload
 app.post("/doctors", upload.single("document"), async (req, res) => {
   try {
     const newDoctor = new Doctor({
@@ -88,18 +103,20 @@ app.post("/doctors", upload.single("document"), async (req, res) => {
   }
 });
 
-// API: Book an Appointment (Includes userEmail)
+// =======================
+// Appointment Routes
+// =======================
+
+// Book an appointment
 app.post("/appointments", async (req, res) => {
   try {
     const { userEmail, selectedDoctor, appointmentDate, appointmentTime, meetLink } = req.body;
 
-    // Check if doctor is already booked
     const existingAppointment = await Appointment.findOne({ selectedDoctor });
     if (existingAppointment) {
       return res.status(400).json({ error: "This doctor is already booked for an appointment." });
     }
 
-    // If doctor is available, book the appointment
     const newAppointment = new Appointment({ userEmail, selectedDoctor, appointmentDate, appointmentTime, meetLink });
     await newAppointment.save();
     res.status(201).json(newAppointment);
@@ -108,11 +125,11 @@ app.post("/appointments", async (req, res) => {
   }
 });
 
-// API: Get Appointments (Filter by userEmail)
+// Get appointments (optional filter by userEmail)
 app.get("/appointments", async (req, res) => {
   try {
     const { userEmail } = req.query;
-    const query = userEmail ? { userEmail } : {}; // Fetch appointments for a specific user if email is provided
+    const query = userEmail ? { userEmail } : {};
     const appointments = await Appointment.find(query);
     res.json(appointments);
   } catch (error) {
@@ -120,7 +137,7 @@ app.get("/appointments", async (req, res) => {
   }
 });
 
-// API: Delete an Appointment (Move to Removed Appointments Collection)
+// Delete an appointment (move to removed collection)
 app.delete("/appointments/:id", async (req, res) => {
   try {
     const appointment = await Appointment.findById(req.params.id);
@@ -136,8 +153,41 @@ app.delete("/appointments/:id", async (req, res) => {
   }
 });
 
-// Serve Uploaded Files
+// =======================
+// Booking Routes (From server1.js)
+// =======================
+
+// Booking Schema
+const bookingSchema = new mongoose.Schema({
+  tripType: String,
+  currentLocation: String,
+  destination: String,
+  date: String,
+  time: String,
+  numberOfMembers: String,
+  selectedCar: String
+});
+
+const Booking = mongoose.model("Booking", bookingSchema);
+
+// Book a trip
+app.post("/api/bookings", async (req, res) => {
+  try {
+    const newBooking = new Booking(req.body);
+    await newBooking.save();
+    res.status(201).json({ message: "Booking saved successfully!" });
+  } catch (error) {
+    res.status(500).json({ message: "Error saving booking", error });
+  }
+});
+
+// =======================
+// Serve uploaded files
+// =======================
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+// =======================
+// Start Server
+// =======================
 const PORT = 8000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
