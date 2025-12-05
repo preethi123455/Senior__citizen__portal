@@ -17,12 +17,10 @@ app.use(cors());
 // 🔹 MongoDB Connection
 const MONGO_URI = "mongodb+srv://preethi:Preethi123@cluster0.mongodb.net/seniorEaseBookings?retryWrites=true&w=majority";
 
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log('✅ MongoDB Connected'))
-.catch((error) => console.error('❌ MongoDB Connection Error:', error));
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((error) => console.error("❌ MongoDB Connection Error:", error));
+
 
 // 🔹 User Schema (For Face Authentication)
 const userSchema = new mongoose.Schema({
