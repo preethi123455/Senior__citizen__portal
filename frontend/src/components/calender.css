@@ -1,0 +1,117 @@
+/* Calendar container */
+.calendar-container {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  /* Calendar styles */
+  .react-calendar {
+    width: 100%;
+    max-width: 100%;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Selected date text */
+  .calendar-container p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Set Event Button */
+  .set-event {
+    background: #007bff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+  }
+  
+  .set-event:hover {
+    background: #0056b3;
+  }
+  
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Modal Box */
+  .modal {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+  }
+  
+  /* Modal Input Fields */
+  .modal input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Modal Buttons */
+  .modal-buttons {
+    margin-top: 15px;
+  }
+  
+  .save-event, .close-modal {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .save-event {
+    background: #28a745;
+    color: black;
+  }
+  
+  .save-event:hover {
+    background: #218838;
+  }
+  
+  .close-modal {
+    background: #dc3545;
+    color: rgb(0, 0, 0);
+  }
+  
+  .close-modal:hover {
+    background: #c82333;
+  }
+  
+  /* Success Message */
+  .success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  

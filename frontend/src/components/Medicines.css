@@ -1,0 +1,295 @@
+/* Navbar */
+.navbar {
+  background-color: #6A0DAD;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.car-icon {
+  margin-right: 8px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.footer {
+  background-color: #6A0DAD;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+}
+/* Container */
+.medicines-container {
+  background-color: #f3e5f5;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.medicines-header {
+  color: #ffffff;
+  background-color: #6a0dad;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Car Section */
+.medicines-car-section {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.medicines-section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Horizontal Scroll for Cars */
+.medicines-car-container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto; /* Enables horizontal scroll */
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+/* Car Card */
+.medicines-car-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border: 1px solid #ccc;
+}
+
+.medicines-car-card.selected {
+  border: 3px solid #6a0dad;
+}
+
+.medicines-car-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Car Image */
+.medicines-car-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Car Details */
+.medicines-car-details {
+  padding: 10px;
+  text-align: center;
+}
+
+.medicines-offer-button {
+  margin-top: 8px;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #f44336;
+  border: 1px solid #f44336;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.medicines-offer-button:hover {
+  background-color: #f44336;
+  color: #ffffff;
+}
+.medicines-footer {
+  background-color: #6a0dad;
+  color: #ffffff;
+  padding: 30px 10%;
+  font-size: 14px;
+}
+
+.footer-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-column h3 {
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-size: 18px;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 8px;
+}
+
+.footer-column p, 
+.footer-column ul {
+  color: #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #c0c0c0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  color: #ffffff;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #c0c0c0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ffffff;
+  font-size: 14px;
+}
+
+/* Form Section */
+.medicines-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.medicines-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.medicines-input-group input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.medicines-input-group button {
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.medicines-input-group button:hover {
+  background-color: #5a0caa;
+}
+
+.medicines-date-time {
+  display: flex;
+  gap: 10px;
+}
+
+.medicines-date-time input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.medicines-select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Book Now Button */
+.medicines-book-button {
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+}
+
+.medicines-book-button:hover {
+  background-color: #5a0caa;
+}
+
+.medicines-book-now-button {
+  background-color: #6a0dad; /* Purple color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 8px;
+}
+
+.medicines-book-now-button:hover {
+  background-color: #5a0ca3;
+}
+

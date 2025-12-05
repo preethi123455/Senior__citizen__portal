@@ -1,0 +1,121 @@
+/* Cart container */
+#Cart {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Cart items container */
+  .cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* Each cart item */
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 80%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Cart item image */
+  .cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+  }
+  
+  /* Cart item info */
+  .cart-item-info {
+    flex: 1;
+  }
+  
+  /* Remove button */
+  .remove-item {
+    background-color: #ff6347;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove-item:hover {
+    background-color: #e55347;
+  }
+  
+  /* Empty cart message */
+  p {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  .buy-now-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .buy-now {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f5a623;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .buy-now:hover {
+    background-color: #d97c1c;
+  }
+
+  .order-form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+  
+  .order-form input,
+  .order-form textarea {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .order-form button {
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .order-form button:hover {
+    background: #218838;
+  }
+  
