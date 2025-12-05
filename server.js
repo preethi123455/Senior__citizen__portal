@@ -13,12 +13,11 @@ app.use(cors({ origin: "*" }));
 // =======================
 // MongoDB Atlas Connection
 // =======================
-const MONGO_URI = "mongodb+srv://preethi:Preethi123@cluster0.mongodb.net/seniorEaseBookings?retryWrites=true&w=majority";
+const MONGO_URI = "mongodb+srv://preethi:Preethi123@cluster0.ac2ywxc.mongodb.net/seniorEaseBookings?retryWrites=true&w=majority";
 
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+
+mongoose.connect(MONGO_URI)
+
   .then(() => console.log("✅ MongoDB connected"))
   .catch(err => {
     console.error("❌ MongoDB connection error:", err);
