@@ -15,7 +15,8 @@ app.use(express.json({ limit: '10mb' }));
 app.use(cors());
 
 // 🔹 MongoDB Connection
-const MONGO_URI = "mongodb+srv://preethi:Preethi123@cluster0.mongodb.net/seniorEaseBookings?retryWrites=true&w=majority";
+const MONGO_URI = "mongodb+srv://preethi:Preethi123@cluster0.ac2ywxc.mongodb.net/seniorEaseBookings?retryWrites=true&w=majority";
+
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log("✅ MongoDB Connected"))
