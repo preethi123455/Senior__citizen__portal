@@ -23,7 +23,8 @@ const Login = () => {
     setCapturedImage(imageSrc);
   
     try {
-      const res = await axios.post("http://localhost:5002/login", {
+      const res = await axios.post("https://senior-citizen-portal-backend-face.onrender.com/login", {
+
         email,
         image: imageSrc,
       });
@@ -31,7 +32,7 @@ const Login = () => {
       if (res.data.success) {
         localStorage.setItem("userEmail", email); // Store email in localStorage
         setMessage("✅ Login successful!");
-        window.location.href = "/hom"; // Redirect to home page
+        window.location.href = "/home"; // Redirect to home page
       } else {
         setMessage("❌ Login failed. Face does not match.");
       }

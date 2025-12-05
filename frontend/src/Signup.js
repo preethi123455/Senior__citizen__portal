@@ -25,7 +25,8 @@ const Signup = () => {
     setCapturedImage(imageSrc);
 
     try {
-      const res = await axios.post("http://localhost:5002/signup", {
+      const res = await axios.post("https://senior-citizen-portal-backend-face.onrender.com/signup", {
+
         name,
         age,
         email,
