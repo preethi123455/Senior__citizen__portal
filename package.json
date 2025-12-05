@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@jitsi/react-sdk": "^1.4.4",
+    "axios": "^1.8.1",
+    "image-data-uri": "^2.0.1",
+    "ssim.js": "^3.5.0"
+  }
+}
