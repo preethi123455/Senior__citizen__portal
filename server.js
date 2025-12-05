@@ -8,7 +8,17 @@ const path = require("path");
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(
+  cors({
+    origin: "https://senior-citizen-portal-frontend.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+app.options("*", cors());
+
+
 
 // =======================
 // MongoDB Atlas Connection
@@ -59,6 +69,21 @@ const removedAppointmentSchema = new mongoose.Schema({
 const Doctor = mongoose.model("Doctor", doctorSchema);
 const Appointment = mongoose.model("Appointment", appointmentSchema);
 const RemovedAppointment = mongoose.model("RemovedAppointment", removedAppointmentSchema);
+// =======================
+// Face Auth Placeholder Routes (Required for frontend to work)
+// =======================
+
+// Test Signup
+app.post("/signup", (req, res) => {
+  console.log("📩 Signup called:", req.body);
+  return res.json({ message: "Signup route working!" });
+});
+
+// Test Login
+app.post("/login", (req, res) => {
+  console.log("📩 Login called:", req.body);
+  return res.json({ success: true, message: "Login route working!" });
+});
 
 // =======================
 // Multer Configuration (For Doctor Document Upload)
